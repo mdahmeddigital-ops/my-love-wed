@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>I Love You Aruuu ❤️</title>
 
 <link rel="stylesheet" href="style.css">
@@ -10,84 +14,164 @@
 </head>
 
 <body>
-<div class="hearts">
-<span>❤️</span>
-<span>💖</span>
-<span>💕</span>
-<span>💗</span>
-<span>💘</span>
-<span>❤️</span>
-<span>💞</span>
-<span>💓</span>
-</div>
 
-  
-<div class="page1">
+<!-- Loading Screen -->
 
-<h1>I Love You Aruuu ❤️</h1>
+<div id="loader">
 
-<p>Every heartbeat belongs to you.</p>
+<div class="loaderHeart">❤️</div>
 
-<div class="heart" onclick="nextPage()">
-💘
-</div>
+<h1>I Love You Aruuu</h1>
 
-<p class="tap">Touch the Heart</p>
+<p>Loading Love...</p>
 
 </div>
 
-<div class="page2">
+<!-- Floating Hearts -->
 
+<div id="heartContainer"></div>
 
-<h2>Welcome My Love 💖</h2>
+<!-- Intro Page -->
 
-<p class="loveText">
-You are my happiness,<br>
-my smile,<br>
-my forever. ❤️
+<section id="page1" class="page active">
+
+<h1 class="title">
+
+I Love You Aruuu ❤️
+
+</h1>
+
+<p class="subtitle">
+
+Every heartbeat belongs to you.
+
 </p>
-<div class="targetScene">
 
-<div class="target">🎯</div>
+<button class="loveBtn"
 
-<div class="arrow" onclick="hitTarget()">
+onclick="openArrowScene()">
+
+💘 Touch Me 💘
+
+</button>
+
+</section>
+
+<!-- Arrow Scene -->
+
+<section id="page2" class="page">
+
+<h2>
+
+Shoot The Love Arrow
+
+</h2>
+
+<div class="scene">
+
+<div id="bow">
+
 🏹
+
 </div>
 
-<p class="shootText">
-Touch the Bow 🏹
+<div id="target">
+
+🎯
+
+</div>
+
+</div>
+
+<button
+
+class="shootBtn"
+
+onclick="shootArrow()">
+
+Shoot ❤️
+
+</button>
+
+</section>
+
+<!-- Explosion Scene -->
+
+<section id="page3" class="page">
+
+<h1>
+
+💥
+
+</h1>
+
+<h2>
+
+Target Hit Successfully ❤️
+
+</h2>
+
+<p>
+
+Love Never Misses...
+
 </p>
 
-</div>
+<button
 
-  
-</div>
-<div id="loveLetter" class="letter">
+onclick="openLetter()"
+
+class="nextBtn">
+
+Open Love Letter 💌
+
+</button>
+
+</section>
+
+<!-- Love Letter -->
+
+<div id="letter">
 
 <div class="letterBox">
 
-<h2>💌 For My Aruuu 💌</h2>
+<h2>
 
-<p>
-My Dear Aruuu,<br><br>
+For My Aruuu ❤️
 
-Every day with you is the best day of my life.
-You are my smile, my happiness,
-my peace and my forever. ❤️<br><br>
+</h2>
 
-No matter what happens,
-I will always love you forever. 💖
+<p id="letterText">
+
+Every day I thank Allah
+for sending you into my life.
+
+You are my smile.
+
+My peace.
+
+My happiness.
+
+My forever.
+
+I Love You Forever ❤️
 
 </p>
 
-<button onclick="closeLetter()">
+<button
+
+onclick="closeLetter()">
+
 Close ❤️
+
 </button>
 
 </div>
 
 </div>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
