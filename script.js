@@ -447,3 +447,86 @@ function openGiftPage(){
 showPage(3);
 
 }
+
+
+
+/* ===================================
+   FINAL ROMANTIC CONNECTION
+=================================== */
+
+
+// Final Celebration Button
+
+function finalCelebration(){
+
+heartExplosion();
+
+fireworks();
+
+setTimeout(()=>{
+
+createHeart();
+
+},500);
+
+
+setTimeout(()=>{
+
+createHeart();
+
+},1000);
+
+
+setTimeout(()=>{
+
+createHeart();
+
+},1500);
+
+}
+
+
+
+// Go To Final Scene
+
+function openFinalScene(){
+
+showPage(4);
+
+}
+
+
+// Gift Open Then Final Scene
+
+const oldOpenGift = openGift;
+
+openGift=function(){
+
+oldOpenGift();
+
+
+setTimeout(()=>{
+
+showPage(4);
+
+},3500);
+
+
+}
+
+
+
+// Final Button Click Effect
+
+document.querySelectorAll(".finishBtn").forEach(btn=>{
+
+
+btn.addEventListener("click",()=>{
+
+
+btn.innerHTML="❤️ Forever Aruuu ❤️";
+
+
+});
+
+});
