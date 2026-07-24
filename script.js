@@ -402,3 +402,48 @@ createHeart();
 },900);
 
 console.log("❤️ I Love You Aruuu Forever ❤️");
+
+
+
+/* ===================================
+   SURPRISE GIFT JAVASCRIPT
+=================================== */
+
+function openGift(){
+
+const gift=document.querySelector(".giftBox");
+
+const message=document.getElementById("giftMessage");
+
+
+// Gift Animation
+
+gift.style.transform="scale(1.5) rotate(360deg)";
+
+gift.innerHTML="💝";
+
+
+// Show Message
+
+setTimeout(()=>{
+
+message.classList.remove("hidden");
+
+heartExplosion();
+
+fireworks();
+
+
+},800);
+
+
+}
+
+
+// Go To Gift Page
+
+function openGiftPage(){
+
+showPage(3);
+
+}
