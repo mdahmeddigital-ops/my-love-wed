@@ -290,3 +290,115 @@ fireworks();
 },1000);
 
 }
+
+
+// =======================================
+// PREMIUM JS PART 3C (FINAL)
+// =======================================
+
+// Love Letter Typing Effect
+const finalMessage = `
+
+My Dear Aruuu ❤️
+
+Every day I fall in love with you again.
+
+You are my happiness.
+You are my smile.
+You are my dream.
+
+No matter what happens...
+
+I will always love you.
+
+Forever & Ever ❤️
+
+`;
+
+function typeLetter(){
+
+const box = document.getElementById("letterText");
+
+if(!box) return;
+
+box.innerHTML="";
+
+let i=0;
+
+const typing=setInterval(()=>{
+
+box.innerHTML += finalMessage.charAt(i);
+
+i++;
+
+if(i>=finalMessage.length){
+
+clearInterval(typing);
+
+}
+
+},35);
+
+}
+
+// Open Letter Update
+
+const oldOpenLetter = openLetter;
+
+openLetter=function(){
+
+oldOpenLetter();
+
+setTimeout(typeLetter,300);
+
+}
+
+// Final Celebration
+
+function finalCelebration(){
+
+heartExplosion();
+
+fireworks();
+
+setTimeout(()=>{
+
+heartExplosion();
+
+},1200);
+
+setTimeout(()=>{
+
+fireworks();
+
+},2200);
+
+}
+
+// Button Effect
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.style.transform="scale(.92)";
+
+setTimeout(()=>{
+
+btn.style.transform="scale(1)";
+
+},150);
+
+});
+
+});
+
+// Random Hearts Forever
+
+setInterval(()=>{
+
+createHeart();
+
+},900);
+
+console.log("❤️ I Love You Aruuu Forever ❤️");
