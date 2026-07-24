@@ -449,3 +449,188 @@ font-size:32px;
 }
 
 }
+
+
+
+/* ===================================
+   SURPRISE GIFT SCENE
+=================================== */
+
+#page5{
+text-align:center;
+}
+
+
+.giftBox{
+
+font-size:120px;
+
+cursor:pointer;
+
+animation:giftBounce 1.5s infinite;
+
+filter:drop-shadow(0 0 25px white);
+
+}
+
+
+.giftBox:hover{
+
+transform:scale(1.2) rotate(10deg);
+
+}
+
+
+#page5 h2{
+
+font-size:45px;
+
+margin-top:30px;
+
+text-shadow:0 0 20px white;
+
+}
+
+
+#page5 p{
+
+font-size:24px;
+
+}
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+#giftMessage{
+
+margin-top:40px;
+
+animation:giftOpen 1s;
+
+}
+
+
+#giftMessage h1{
+
+font-size:50px;
+
+color:white;
+
+text-shadow:
+0 0 20px #fff,
+0 0 40px pink;
+
+}
+
+
+#giftMessage p{
+
+font-size:25px;
+
+line-height:2;
+
+}
+
+
+/* Gift Animation */
+
+@keyframes giftBounce{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-25px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+
+@keyframes giftOpen{
+
+from{
+
+opacity:0;
+
+transform:scale(.3);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* Romantic Glow */
+
+.finalTitle{
+
+animation:finalGlow 2s infinite alternate;
+
+}
+
+
+@keyframes finalGlow{
+
+from{
+
+text-shadow:0 0 10px white;
+
+}
+
+to{
+
+text-shadow:
+0 0 30px white,
+0 0 60px #ff2d75;
+
+}
+
+}
+
+
+/* Mobile Gift */
+
+@media(max-width:768px){
+
+.giftBox{
+
+font-size:90px;
+
+}
+
+#giftMessage h1{
+
+font-size:32px;
+
+}
+
+#giftMessage p{
+
+font-size:18px;
+
+}
+
+}
