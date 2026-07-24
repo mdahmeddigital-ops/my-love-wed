@@ -1,80 +1,96 @@
-// =============================
-// I Love You Aruuu ❤️
-// Complete JavaScript
-// =============================
+// =======================================
+// I LOVE YOU ARUUU ❤️
+// PREMIUM JS PART 3A
+// =======================================
 
-// Page Change
-function nextPage() {
+const loader = document.getElementById("loader");
+const pages = document.querySelectorAll(".page");
+const heartContainer = document.getElementById("heartContainer");
 
-const page1 = document.querySelector(".page1");
-const page2 = document.querySelector(".page2");
-
-page1.style.opacity = "0";
-page1.style.pointerEvents = "none";
+window.onload = () => {
 
 setTimeout(() => {
 
-page2.style.opacity = "1";
-page2.style.pointerEvents = "auto";
+loader.style.opacity = "0";
 
-},700);
+setTimeout(() => {
+
+loader.style.display = "none";
+
+showPage(0);
+
+},800);
+
+},2500);
+
+};
+
+// ---------- Show Page ----------
+
+function showPage(index){
+
+pages.forEach(page=>{
+
+page.classList.remove("active");
+
+});
+
+pages[index].classList.add("active");
 
 }
 
-// Target Hit
-function hitTarget() {
+// ---------- Open Arrow Scene ----------
 
-const arrow = document.querySelector(".arrow");
-const target = document.querySelector(".target");
+function openArrowScene(){
 
-arrow.style.pointerEvents = "none";
+showPage(1);
 
-arrow.style.transition = "1s";
+}
 
-arrow.style.transform =
-"translateY(-120px) translateX(25px) rotate(-20deg) scale(1.2)";
+// ---------- Shoot Arrow ----------
 
-setTimeout(() => {
+function shootArrow(){
 
-target.innerHTML = "💥";
+const bow=document.getElementById("bow");
+const target=document.getElementById("target");
+
+bow.style.transition="1s";
+
+bow.style.transform="translateX(220px) rotate(-18deg)";
+
+setTimeout(()=>{
+
+target.innerHTML="💥";
 
 navigator.vibrate?.(200);
 
 },900);
 
-setTimeout(() => {
+setTimeout(()=>{
 
-target.innerHTML = "❤️";
+showPage(2);
 
-document.querySelector(".loveText").innerHTML = `
-<h2>I Love You Aruuu ❤️</h2>
-
-<p>
-You are my Heart ❤️<br><br>
-
-You are my Smile 😊<br><br>
-
-You are my Happiness 💖<br><br>
-
-Forever & Ever 💞
-</p>
-`;
-
-document.getElementById("loveLetter").style.display = "flex";
-
-},1600);
+},1700);
 
 }
 
-// Close Love Letter
+// ---------- Love Letter ----------
+
+function openLetter(){
+
+document.getElementById("letter").style.display="flex";
+
+}
+
 function closeLetter(){
 
-document.getElementById("loveLetter").style.display="none";
+document.getElementById("letter").style.display="none";
 
 }
 
-// ESC Key Close
-document.addEventListener("keydown",function(e){
+// ---------- ESC Close ----------
+
+document.addEventListener("keydown",(e)=>{
 
 if(e.key==="Escape"){
 
@@ -84,10 +100,11 @@ closeLetter();
 
 });
 
-// Click Outside Close
-window.onclick=function(e){
+// ---------- Click Outside ----------
 
-const letter=document.getElementById("loveLetter");
+window.onclick=(e)=>{
+
+const letter=document.getElementById("letter");
 
 if(e.target===letter){
 
@@ -95,13 +112,44 @@ closeLetter();
 
 }
 
+};
+
+// ---------- Floating Hearts ----------
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="floatingHeart";
+
+const hearts=["❤️","💖","💕","💗","💘","💞"];
+
+heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(6+Math.random()*5)+"s";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heartContainer.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},12000);
+
 }
 
-// Floating Title Effect
+setInterval(createHeart,500);
+
+// ---------- Title Animation ----------
+
 setInterval(()=>{
 
-document.title=
-document.title==="I Love You Aruuu ❤️"
+document.title=document.title==="I Love You Aruuu ❤️"
+
 ?
 
 "❤️ Forever My Love ❤️"
@@ -110,64 +158,135 @@ document.title==="I Love You Aruuu ❤️"
 
 "I Love You Aruuu ❤️";
 
-},1500);
+},1800);
 
-// Heart Click Animation
-const heart=document.querySelector(".heart");
+console.log("❤️ Premium Love Website Loaded ❤️");
 
-heart.addEventListener("click",()=>{
 
-heart.style.transform="scale(1.4)";
+// =======================================
+// PREMIUM JS PART 3B
+// =======================================
 
-setTimeout(()=>{
+// ---------- Heart Explosion ----------
 
-heart.style.transform="scale(1)";
+function heartExplosion(){
 
-},250);
-
-});
-
-// Small Heart Rain
-function createHeart(){
+for(let i=0;i<35;i++){
 
 const heart=document.createElement("div");
 
 heart.innerHTML="💖";
 
 heart.style.position="fixed";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.top="-40px";
-
-heart.style.fontSize=(20+Math.random()*25)+"px";
-
+heart.style.left="50%";
+heart.style.top="50%";
+heart.style.fontSize=(18+Math.random()*30)+"px";
 heart.style.pointerEvents="none";
-
-heart.style.zIndex="999";
+heart.style.zIndex="9999";
 
 document.body.appendChild(heart);
 
-let pos=-40;
+const x=(Math.random()-0.5)*700;
+const y=(Math.random()-0.5)*700;
 
-const fall=setInterval(()=>{
+heart.animate([
 
-pos+=3;
+{
+transform:"translate(0,0) scale(1)",
+opacity:1
+},
 
-heart.style.top=pos+"px";
+{
+transform:`translate(${x}px,${y}px) scale(0)`,
+opacity:0
+}
 
-if(pos>window.innerHeight){
+],{
+
+duration:1800,
+easing:"ease-out"
+
+});
+
+setTimeout(()=>{
 
 heart.remove();
 
-clearInterval(fall);
+},1800);
 
 }
 
-},20);
+}
+
+// ---------- Fireworks ----------
+
+function fireworks(){
+
+for(let i=0;i<60;i++){
+
+const spark=document.createElement("div");
+
+spark.style.position="fixed";
+spark.style.left="50%";
+spark.style.top="45%";
+spark.style.width="6px";
+spark.style.height="6px";
+spark.style.borderRadius="50%";
+spark.style.background="white";
+spark.style.pointerEvents="none";
+spark.style.zIndex="9999";
+
+document.body.appendChild(spark);
+
+const angle=Math.random()*360;
+const distance=150+Math.random()*250;
+
+const x=Math.cos(angle*Math.PI/180)*distance;
+const y=Math.sin(angle*Math.PI/180)*distance;
+
+spark.animate([
+
+{
+transform:"translate(0,0)",
+opacity:1
+},
+
+{
+transform:`translate(${x}px,${y}px)`,
+opacity:0
+}
+
+],{
+
+duration:1400,
+easing:"ease-out"
+
+});
+
+setTimeout(()=>{
+
+spark.remove();
+
+},1500);
 
 }
 
-setInterval(createHeart,1200);
+}
 
-console.log("❤️ I Love You Aruuu ❤️");
+// ---------- Update shootArrow ----------
+
+const oldShootArrow = shootArrow;
+
+shootArrow = function(){
+
+oldShootArrow();
+
+setTimeout(()=>{
+
+heartExplosion();
+
+fireworks();
+
+},1000);
+
+}
